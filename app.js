@@ -1,8 +1,8 @@
-var express = require("express");
-var app = express();
-var user = require("./controllers/usercontroller");
-var game = require("./controllers/gamecontroller");
-var db = require("./db");
+const express = require("express");
+const app = express();
+const user = require("./controllers/usercontroller");
+const game = require("./controllers/gamecontroller");
+const db = require("./db");
 
 db.sync();
 
