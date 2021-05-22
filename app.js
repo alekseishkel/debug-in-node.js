@@ -1,15 +1,15 @@
-var express = require('express');
-var app = express();
-var db = require('./db');
-var user = require('./controllers/usercontroller');
-var game = require('./controllers/gamecontroller')
+const express = require("express");
+const app = express();
+const user = require("./controllers/usercontroller");
+const game = require("./controllers/gamecontroller");
+const db = require("./db");
 
+db.sync().catch((err) => console.log(`Error: ${err}`));
 
-db.sync();
-app.use(require('body-parser'));
-app.use('/api/auth', user);
-app.use(require('./middleware/validate-session'))
-app.use('/api/game', game);
-app.listen(function() {
-    console.log("App is listening on 4000");
-})
+app.use(require("body-parser").json());
+app.use("/api/auth", user);
+app.use(require("./middleware/validate-session"));
+app.use("/api/game", game);
+app.listen(4000, () => {
+  console.log("App is listening on 4000");
+});
