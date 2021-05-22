@@ -26,7 +26,7 @@ router.get("/:id", (req, res) => {
       });
     },
 
-    (err) => {
+    () => {
       res.status(500).json({
         message: "Data not found.",
       });
