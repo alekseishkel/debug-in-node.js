@@ -5,7 +5,7 @@ router.get("/all", (req, res) => {
   Game.findAll({ where: { owner_id: req.user.id } }).then(
     (games) => {
       res.status(200).json({
-        games: games,
+        games,
         message: "Data fetched.",
       });
     },
@@ -22,7 +22,7 @@ router.get("/:id", (req, res) => {
   Game.findOne({ where: { id: req.params.id, owner_id: req.user.id } }).then(
     (game) => {
       res.status(200).json({
-        game: game,
+        game,
       });
     },
 
@@ -45,7 +45,7 @@ router.post("/create", (req, res) => {
   }).then(
     (game) => {
       res.status(200).json({
-        game: game,
+        game,
         message: "Game created.",
       });
     },
@@ -74,7 +74,7 @@ router.put("/update/:id", (req, res) => {
   ).then(
     (game) => {
       res.status(200).json({
-        game: game,
+        game,
         message: "Successfully updated.",
       });
     },
@@ -96,7 +96,7 @@ router.delete("/remove/:id", (req, res) => {
   }).then(
     (game) => {
       res.status(200).json({
-        game: game,
+        game,
         message: "Successfully deleted",
       });
     },
