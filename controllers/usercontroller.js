@@ -33,6 +33,7 @@ router.post("/signin", (req, res) => {
         req.body.user.password,
         user.passwordHash,
         (_, matches) => {
+          
           if (matches) {
             const token = jwt.sign({ id: user.id }, "lets_play_sum_games_man", {
               expiresIn: 60 * 60 * 24,
