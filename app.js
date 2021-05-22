@@ -4,7 +4,7 @@ const user = require("./controllers/usercontroller");
 const game = require("./controllers/gamecontroller");
 const db = require("./db");
 
-db.sync();
+db.sync().catch((err) => console.log(`Error: ${err}`));
 
 app.use(require("body-parser").json());
 app.use("/api/auth", user);
